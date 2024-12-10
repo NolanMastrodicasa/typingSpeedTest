@@ -16,6 +16,7 @@ public class runner{
             System.out.println("2. Use Custom Prompt");
             System.out.println("3. Exit");
             int choice = input.nextInt();
+            input.nextLine();
             String toBeTyped;
 
             if (choice == 1) {
@@ -44,8 +45,6 @@ public class runner{
 
         }
 
-
-
     }
 
 
@@ -57,6 +56,7 @@ public class runner{
         }
         clearConsole();
         System.out.println(text);
+        String typedText = input.nextLine();
 
 
     }
