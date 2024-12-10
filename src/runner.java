@@ -1,7 +1,7 @@
 public class runner{
     public static void main(String[] args){
-        System.out.println("This is a test commit.");
-        asd
+        System.out.println("Pull this!");
+        
     }
 }
 
