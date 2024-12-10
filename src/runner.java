@@ -20,14 +20,22 @@ public class runner{
 
             if (choice == 1) {
                 toBeTyped = prompt.getPrompt();
-                startTest(toBeTyped);
                 System.out.println("Starting the test with default prompt!");
-                System.out.println(toBeTyped);
+                try {
+                    startTest(toBeTyped, input);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             }else if (choice == 2){
                 toBeTyped = prompt.setCustomPrompt(input);
-                startTest(toBeTyped);
                 System.out.println("Starting the test with custom prompt!");
-                System.out.println(toBeTyped);
+                try {
+                    startTest(toBeTyped, input);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             }else{
                 System.out.println("Exiting.");
                 break;
@@ -38,11 +46,32 @@ public class runner{
 
 
 
+    }
 
 
-
+    public static void startTest(String text, Scanner input) throws InterruptedException {
+        System.out.println("Get ready!");
+        for (int count = 3; count>0; count--){
+            System.out.printf("Starting in %d!\n",count);
+            Thread.sleep(1000);
+        }
+        clearConsole();
+        System.out.println(text);
 
 
     }
+
+    public static void clearConsole() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
+
+
+
+
+
+
+
 }
 
