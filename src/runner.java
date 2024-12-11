@@ -62,12 +62,20 @@ public class runner{
         long timeTakenMillis = endTime - startTime;
         double timeTakenSec = timeTakenMillis / 1000.0;
         System.out.println("your time in seconds is: " + timeTakenSec);
+        int numWords = howManyWords(typedText);
+        System.out.println("Number of words in the typed text is: "+numWords);
 
 
     }
 
-    public int howManyWords(String inputPrompt){
-
+    public static int howManyWords(String inputPrompt){
+        int words = 0;
+        String recycledWord;
+        Scanner s = new Scanner(inputPrompt);
+        while (s.hasNext()){
+            words++;
+            recycledWord = s.next();
+        }
         return words;
     }
 
