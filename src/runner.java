@@ -56,9 +56,19 @@ public class runner{
         }
         clearConsole();
         System.out.println(text);
+        long startTime = System.currentTimeMillis();
         String typedText = input.nextLine();
+        long endTime = System.currentTimeMillis();
+        long timeTakenMillis = endTime - startTime;
+        double timeTakenSec = timeTakenMillis / 1000.0;
+        System.out.println("your time in seconds is: " + timeTakenSec);
 
 
+    }
+
+    public int howManyWords(String inputPrompt){
+
+        return words;
     }
 
     public static void clearConsole() {
