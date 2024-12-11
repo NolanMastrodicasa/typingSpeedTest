@@ -61,20 +61,45 @@ public class runner{
         long endTime = System.currentTimeMillis();
         long timeTakenMillis = endTime - startTime;
         double timeTakenSec = timeTakenMillis / 1000.0;
-        System.out.println("your time in seconds is: " + timeTakenSec);
+        System.out.println("Time (Seconds): " + timeTakenSec);
         int numWords = howManyWords(typedText);
-        System.out.println("Number of words in the typed text is: "+numWords);
+        System.out.println("Number of words: "+numWords);
+
+        double wpm = numWords / timeTakenSec * 60;
+
+        System.out.println("Bronze = 40 WPM" );
+        System.out.println("Silver = 60 WPM" );
+        System.out.println("Gold = 75 WPM" );
+        System.out.println("Elite = 90 WPM" );
+        System.out.println("Champion = 110 WPM" );
+        System.out.println("Unreal = 140 WPM" );
+
+        System.out.println("WPM = " + wpm);
+
+
+        if (wpm >= 40 && wpm < 60) {
+            System.out.println("Your rank is Bronze");
+        } else if (wpm >= 60 && wpm < 75) {
+            System.out.println("Your rank is Silver");
+        } else if (wpm >= 75 && wpm < 90) {
+            System.out.println("Your rank is Gold");
+        } else if (wpm >= 90 && wpm < 110) {
+            System.out.println("Your rank is Elite");
+        } else if (wpm >= 110 && wpm < 140) {
+            System.out.println("Your rank is Champion");
+        } else if (wpm >= 140) {
+            System.out.println("Your rank is Unreal");
+        }
 
 
     }
 
     public static int howManyWords(String inputPrompt){
         int words = 0;
-        String recycledWord;
         Scanner s = new Scanner(inputPrompt);
         while (s.hasNext()){
             words++;
-            recycledWord = s.next();
+            s.next();
         }
         return words;
     }
@@ -84,6 +109,8 @@ public class runner{
             System.out.println();
         }
     }
+
+
 
 
 
