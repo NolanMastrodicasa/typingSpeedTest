@@ -84,15 +84,34 @@ public class runner{
         long endTime = System.currentTimeMillis();
         long timeTakenMillis = endTime - startTime;
         double timeTakenSec = timeTakenMillis / 1000.0;
-        System.out.println("Time (Seconds): " + timeTakenSec);
         int numWords = howManyWords(typedText);
         double wpm = numWords / timeTakenSec * 60;
         wpm = Math.round(wpm);
         rank(wpm);
         int typedCorrectly = calculateAccuracy(text, typedText);
-        System.out.println("Your accuracy was "+typedCorrectly+"%");
+        System.out.println("===================================");
+        System.out.println("          Typing Test Results");
+        System.out.println("===================================");
+        System.out.print("WPM: ");
+        System.out.printf("%.1f\n", wpm);
+        System.out.println("Accuracy: " + typedCorrectly + "%");
+        System.out.println("Time (Seconds): " + timeTakenSec);
 
+        int random = (int) (Math.random() * 5);
 
+        if (random == 0) {
+            System.out.println("Too slow!");
+        } else if (random == 1) {
+            System.out.println("Make sure to warm up your fingers!");
+        } else if (random == 2) {
+            System.out.println("My Grandma types faster!");
+        } else if (random == 3) {
+            System.out.println("Get better!");
+        } else if (random == 4) {
+            System.out.println("Your geeked!");
+        } else if (random == 5) {
+            System.out.println("Maybe its time to put down the geekbar");
+        }
 
 
 
