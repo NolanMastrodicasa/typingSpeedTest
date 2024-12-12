@@ -14,7 +14,8 @@ public class runner{
             System.out.println("Typing Test");
             System.out.println("1. Start Test (random prompt)");
             System.out.println("2. Use Custom Prompt");
-            System.out.println("3. Exit");
+            System.out.println("3. Rank Requirements");
+            System.out.println("4. Exit");
             int choice = input.nextInt();
             input.nextLine();
             String toBeTyped;
@@ -29,6 +30,7 @@ public class runner{
                 }
                 break;
             }else if (choice == 2){
+                System.out.println("Type custom prompt here:");
                 toBeTyped = prompt.setCustomPrompt(input);
                 System.out.println("Starting the test with custom prompt!");
                 try {
@@ -37,10 +39,21 @@ public class runner{
                     throw new RuntimeException(e);
                 }
                 break;
-            }else{
+            }else if (choice == 3){
+                System.out.println("Unranked < 40 WPM");
+                System.out.println("Bronze = 40 WPM" );
+                System.out.println("Silver = 60 WPM" );
+                System.out.println("Gold = 75 WPM" );
+                System.out.println("Elite = 90 WPM" );
+                System.out.println("Champion = 110 WPM" );
+                System.out.println("Unreal = 140+ WPM" );
+                break;
+
+            } else {
                 System.out.println("Exiting.");
                 break;
             }
+
 
 
         }
