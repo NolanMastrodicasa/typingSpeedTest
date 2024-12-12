@@ -5,7 +5,7 @@ public class prompt {
 
     public prompt(){
         //TODO add more of these, randomly choose a random prompt each time getPrompt is called.
-        text = "The quick brown monkey flies over the lazy dog.";
+        text = "The quick brown fox jumps over the lazy dog.";
     }
 
     public String getPrompt(){

@@ -89,6 +89,8 @@ public class runner{
         double wpm = numWords / timeTakenSec * 60;
         wpm = Math.round(wpm);
         rank(wpm);
+        int typedCorrectly = calculateAccuracy(text, typedText);
+        System.out.println("Your accuracy was "+typedCorrectly+"%");
 
 
 
@@ -97,6 +99,22 @@ public class runner{
 
 
     }
+    public static int calculateAccuracy(String toBeTyped, String typedText) {
+        float lettersTypedProperly = 0;
+        int lengthToCheck = Math.min(toBeTyped.length(), typedText.length());
+        for (int i = 0; i < lengthToCheck; i++) {
+            if (toBeTyped.charAt(i) == typedText.charAt(i)) {
+                lettersTypedProperly++;
+            }
+        }
+        return Math.round((lettersTypedProperly / toBeTyped.length()) * 100);
+    }
+
+
+
+
+
+
     public static void rank(double wpm) {
         if (wpm >= 40 && wpm < 60) {
             System.out.println("Your rank is "+BRONZE+"Bronze"+RESET);
