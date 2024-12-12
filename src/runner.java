@@ -86,9 +86,8 @@ public class runner{
         double timeTakenSec = timeTakenMillis / 1000.0;
         System.out.println("Time (Seconds): " + timeTakenSec);
         int numWords = howManyWords(typedText);
-        System.out.println("Number of words: "+numWords);
-
         double wpm = numWords / timeTakenSec * 60;
+        wpm = Math.round(wpm);
         rank(wpm);
 
 
