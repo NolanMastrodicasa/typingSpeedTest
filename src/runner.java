@@ -1,10 +1,20 @@
 import java.util.Scanner;
 public class runner{
+
+    static final String RESET = "\u001B[0m"; // Reset to default
+    static final String BRONZE = "\u001B[33m"; // Yellow (close to bronze)
+    static final String SILVER = "\u001B[37m"; // White (as silver representation)
+    static final String GOLD = "\u001B[33m"; // Bright yellow for gold
+    static final String ELITE = "\u001B[30m"; // Black
+    static final String CHAMPION = "\u001B[31m"; // Red
+    static final String UNREAL = "\u001B[97m"; // Bright white
+
     public static void main(String[] args){
 
 
-        //checks if user wants to use custom writing prompt.
-        //TODO ask turner if Scanner counts as used object? Also does main class count as a student made class?
+
+        //TODO create a method that calculates how many characters were typed wrong. Then calculates accruacy %.
+        //IF accuracy is not at least 90%, fail test.
 
         Scanner input = new Scanner(System.in);
         prompt prompt = new prompt();
@@ -79,33 +89,42 @@ public class runner{
         System.out.println("Number of words: "+numWords);
 
         double wpm = numWords / timeTakenSec * 60;
-
-        System.out.println("Bronze = 40 WPM" );
-        System.out.println("Silver = 60 WPM" );
-        System.out.println("Gold = 75 WPM" );
-        System.out.println("Elite = 90 WPM" );
-        System.out.println("Champion = 110 WPM" );
-        System.out.println("Unreal = 140 WPM" );
-
-        System.out.println("WPM = " + wpm);
+        rank(wpm);
 
 
-        if (wpm >= 40 && wpm < 60) {
-            System.out.println("Your rank is Bronze");
-        } else if (wpm >= 60 && wpm < 75) {
-            System.out.println("Your rank is Silver");
-        } else if (wpm >= 75 && wpm < 90) {
-            System.out.println("Your rank is Gold");
-        } else if (wpm >= 90 && wpm < 110) {
-            System.out.println("Your rank is Elite");
-        } else if (wpm >= 110 && wpm < 140) {
-            System.out.println("Your rank is Champion");
-        } else if (wpm >= 140) {
-            System.out.println("Your rank is Unreal");
-        }
+
+
+
 
 
     }
+    public static void rank(double wpm) {
+        if (wpm >= 40 && wpm < 60) {
+            System.out.println("Your rank is "+BRONZE+"Bronze"+RESET);
+            System.out.println("Next rank: Silver, you need " + (60 - wpm) + " WPM more to reach it.");
+        } else if (wpm >= 60 && wpm < 75) {
+            System.out.println("Your rank is "+SILVER+"Silver"+RESET);
+            System.out.println("Next rank: Gold, you need " + (75 - wpm) + " WPM more to reach it.");
+        } else if (wpm >= 75 && wpm < 90) {
+            System.out.println("Your rank is "+GOLD+"Gold"+RESET);
+            System.out.println("Next rank: Elite, you need " + (90 - wpm) + " WPM more to reach it.");
+        } else if (wpm >= 90 && wpm < 110) {
+            System.out.println("Your rank is "+ELITE+"Elite"+RESET);
+            System.out.println("Next rank: Champion, you need " + (110 - wpm) + " WPM more to reach it.");
+        } else if (wpm >= 110 && wpm < 140) {
+            System.out.println("Your rank is "+CHAMPION+"Champion"+RESET);
+            System.out.println("Next rank: Unreal, you need " + (140 - wpm) + " WPM more to reach it.");
+        } else if (wpm >= 140) {
+            System.out.println("Your rank is "+UNREAL+"Unreal"+RESET);
+            System.out.println("You have achieved the highest rank!");
+        } else {
+            System.out.println("You are Unranked.");
+            System.out.println("Next rank: Bronze, you " + (40 - wpm) +"more to reach it.");
+
+        }
+    }
+
+
 
     public static int howManyWords(String inputPrompt){
         int words = 0;
