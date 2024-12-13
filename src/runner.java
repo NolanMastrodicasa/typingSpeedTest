@@ -11,10 +11,6 @@ public class runner{
 
     public static void main(String[] args){
 
-
-
-        //IF accuracy is not at least 90%, fail test.
-
         Scanner input = new Scanner(System.in);
         prompt prompt = new prompt();
         boolean running = true;
@@ -69,7 +65,6 @@ public class runner{
 
     }
 
-
     public static void startTest(String text, Scanner input) throws InterruptedException {
         System.out.println("Get ready!");
         for (int count = 3; count>0; count--){
@@ -99,14 +94,8 @@ public class runner{
             System.out.println("Time (Seconds): " + timeTakenSec);
             rank(wpm);
         }
-
-
-
-
-
-
-
     }
+
     public static int calculateAccuracy(String toBeTyped, String typedText) {
         float lettersTypedProperly = 0;
         int lengthToCheck = Math.min(toBeTyped.length(), typedText.length());
@@ -117,11 +106,6 @@ public class runner{
         }
         return Math.round((lettersTypedProperly / toBeTyped.length()) * 100);
     }
-
-
-
-
-
 
     public static void rank(double wpm) {
         if (wpm >= 40 && wpm < 60) {
@@ -148,10 +132,6 @@ public class runner{
 
         }
     }
-
-
-
-
 
     public static void clearConsole() {
         for (int i = 0; i < 50; i++) {
