@@ -3,7 +3,7 @@ public class runner{
 
     static final String RESET = "\u001B[0m"; // Reset to default
     static final String BRONZE = "\u001B[33m"; // Yellow (close to bronze)
-    static final String SILVER = "\u001B[37m"; // White (as silver representation)
+    static final String SILVER = "\u001B[37m"; // White
     static final String GOLD = "\u001B[33m"; // Bright yellow for gold
     static final String ELITE = "\u001B[30m"; // Black
     static final String CHAMPION = "\u001B[31m"; // Red
@@ -13,7 +13,6 @@ public class runner{
 
 
 
-        //TODO create a method that calculates how many characters were typed wrong. Then calculates accruacy %.
         //IF accuracy is not at least 90%, fail test.
 
         Scanner input = new Scanner(System.in);
@@ -84,34 +83,24 @@ public class runner{
         long endTime = System.currentTimeMillis();
         long timeTakenMillis = endTime - startTime;
         double timeTakenSec = timeTakenMillis / 1000.0;
-        int numWords = howManyWords(typedText);
+        int numWords = prompt.howManyWords(typedText);
         double wpm = numWords / timeTakenSec * 60;
         wpm = Math.round(wpm);
-        rank(wpm);
-        int typedCorrectly = calculateAccuracy(text, typedText);
+        int accuracy = calculateAccuracy(text, typedText);
         System.out.println("===================================");
         System.out.println("          Typing Test Results");
         System.out.println("===================================");
-        System.out.print("WPM: ");
-        System.out.printf("%.1f\n", wpm);
-        System.out.println("Accuracy: " + typedCorrectly + "%");
-        System.out.println("Time (Seconds): " + timeTakenSec);
-
-        int random = (int) (Math.random() * 5);
-
-        if (random == 0) {
-            System.out.println("Too slow!");
-        } else if (random == 1) {
-            System.out.println("Make sure to warm up your fingers!");
-        } else if (random == 2) {
-            System.out.println("My Grandma types faster!");
-        } else if (random == 3) {
-            System.out.println("Get better!");
-        } else if (random == 4) {
-            System.out.println("Your geeked!");
-        } else if (random == 5) {
-            System.out.println("Maybe its time to put down the geekbar");
+        if (accuracy <85){
+            System.out.println("FAIL! Your accuracy was "+accuracy+"%, get it to 85% for a rank!");
+        }else {
+            System.out.print("WPM: ");
+            System.out.printf("%.1f\n", wpm);
+            System.out.println("Accuracy: " + accuracy + "%");
+            System.out.println("Time (Seconds): " + timeTakenSec);
+            rank(wpm);
         }
+
+
 
 
 
@@ -162,15 +151,7 @@ public class runner{
 
 
 
-    public static int howManyWords(String inputPrompt){
-        int words = 0;
-        Scanner s = new Scanner(inputPrompt);
-        while (s.hasNext()){
-            words++;
-            s.next();
-        }
-        return words;
-    }
+
 
     public static void clearConsole() {
         for (int i = 0; i < 50; i++) {
