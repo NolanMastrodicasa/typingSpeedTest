@@ -70,8 +70,8 @@ public class prompt {
             System.out.println("Prompt is blank, please enter a valid prompt.");
             return false;
         }
-        if (howManyWords(prompt)<20){
-            System.out.printf("Not enough words, add %d more.\n",20-howManyWords(prompt));
+        if (howManyWords(prompt)<20) {
+            System.out.printf("Not enough words, add %d more.\n", 20 - howManyWords(prompt));
             return false;
         }
 
