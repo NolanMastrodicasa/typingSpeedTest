@@ -30,7 +30,7 @@ public class prompt {
                 "create", "design", "dynamic", "effort", "empower", "explore", "fantasy", "freedom",
                 "garden", "growth", "hero", "horizon", "imagine", "innovation", "journey", "keyboard",
                 "legend", "moment", "nature", "oasis", "ocean", "puzzle", "radiant", "rocket",
-                "serene", "spark", "strength", "success", "thrive", "vibrant", "vintage", "vision",
+                "provoke", "spark", "strength", "success", "thrive", "vibrant", "vintage", "vision",
                 "wander", "wisdom", "writing"
         };
         StringBuilder text = new StringBuilder();
