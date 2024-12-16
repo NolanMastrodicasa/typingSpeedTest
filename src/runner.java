@@ -81,7 +81,7 @@ public class runner{
         int numWords = prompt.howManyWords(typedText);
         double wpm = numWords / timeTakenSec * 60;
         wpm = Math.round(wpm);
-        int accuracy = calculateAccuracy(text, typedText);
+        int accuracy = calculateAccuracy(text.replace(" ", ""), typedText.replace(" ", ""));
         System.out.println("===================================");
         System.out.println("          Typing Test Results");
         System.out.println("===================================");
