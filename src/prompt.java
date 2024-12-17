@@ -1,11 +1,20 @@
+/**
+ * gives functionality to create prompts, validate custom made prompts, and calculate how many words are in specific prompts.
+ */
 import java.util.Scanner;
-
 public class prompt {
 
-    public prompt(){
+    /**
+     * create a default constructor
+     */
+    public prompt() {
     }
 
-    public String getPrompt(){
+    /**
+     * generates a random prompt consisting of 20 words.
+     * @return a String containing 20 randomly picked words separated by spaces.
+     */
+    public String getPrompt() {
         String[] words = {
                 "the", "be", "of", "and", "a", "to", "in", "he", "have", "it", "that", "for", "they", "I",
                 "with", "as", "not", "on", "she", "at", "by", "this", "we", "you", "do", "but", "from",
@@ -34,54 +43,59 @@ public class prompt {
                 "wander", "wisdom", "writing"
         };
         StringBuilder text = new StringBuilder();
-        for (int i = 0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
+            //adds a random word to the String text from the words array.
             text.append(words[(int) (Math.random() * words.length)]);
-            if (i<19){
+            if (i < 19) {
+                //adds a space after each word to make the prompt valid.
                 text.append(" ");
             }
         }
-
         return text.toString();
     }
 
-
-    public static int howManyWords(String inputPrompt){
+    /**
+     * counts the numer of whole words in a specific text
+     * @param inputPrompt the String to be analysed
+     * @return an Int the number of words within the String
+     */
+    public static int howManyWords(String inputPrompt) {
         int words = 0;
         Scanner s = new Scanner(inputPrompt);
-        while (s.hasNext()){
+        while (s.hasNext()) {
             words++;
             s.next();
         }
         return words;
     }
 
-
-    public String setCustomPrompt(Scanner scanner){
+    /**
+     * sets a custom prompt given by the user
+     * @param scanner the Scanner object to read user input
+     * @return a valid prompt as a String
+     */
+    public String setCustomPrompt(Scanner scanner) {
         String prompt = "";
-        while (!isValidPrompt(prompt)){
+        while (!isValidPrompt(prompt)) {
             prompt = scanner.nextLine();
-            }
+        }
         return prompt;
-
     }
 
-    public boolean isValidPrompt(String prompt){
-        if (prompt == null || prompt.isEmpty()){
+    /**
+     * validates a custom prompt to make sure it fits proper criteria
+     * @param prompt the input String to be validated
+     * @return boolean, whether the prompt is valid or not.
+     */
+    public boolean isValidPrompt(String prompt) {
+        if (prompt == null || prompt.isEmpty()) {
             System.out.println("Prompt is blank, please enter a valid prompt.");
             return false;
         }
-        if (howManyWords(prompt)<20) {
+        if (howManyWords(prompt) < 20) {
             System.out.printf("Not enough words, add %d more.\n", 20 - howManyWords(prompt));
             return false;
         }
-
         return true;
-
-
     }
-
-
-
-
-
 }
