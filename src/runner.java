@@ -2,6 +2,7 @@
  * a typing test that calculates words per min, accuracy, and provides a rank.
  * users can either create a custom prompt or randomly generate one, both are used to calculate score.
  */
+// imports scanner
 import java.util.Scanner;
 
 /**
